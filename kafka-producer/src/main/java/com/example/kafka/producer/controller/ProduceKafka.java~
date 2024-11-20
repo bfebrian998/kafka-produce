@@ -1,0 +1,13 @@
+package com.example.kafka.producer.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController()
+@RequestMapping("/producer")
+public class ProduceKafka {
+    @RequestMapping("/kafka-topic")
+    public String produceMessage() {
+        return "Message has been produced successfully";
+    }
+}
