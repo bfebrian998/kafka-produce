@@ -1,4 +1,4 @@
-version: '2.29'
+version: '3.8'
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
@@ -22,10 +22,10 @@ services:
     depends_on:
       - zookeeper
 
-
-  postgres-db:
-    image: postgres:latest
-    container_name: postgres-db
+  postgres:
+    image: postgres:15
+    container_name: my_postgres
+    restart: always
     ports:
       - "5432:5432"
     environment:
@@ -35,5 +35,5 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  volumes:
-    postgres_data:
+volumes:
+  postgres_data:
